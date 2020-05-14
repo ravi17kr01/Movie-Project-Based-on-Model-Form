@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+  </head>
+  <body>
+<div class="container" align="center">
+
+  <h1>Movie List</h1>
+  <br>
+  {% if movie_list %}
+  <table>
+    <thead>
+      <th>Released Date</th>
+      <th>Movie Name</th>
+      <th>Hero</th>
+      <th>Heroine</th>
+      <th>Rating</th>
+    </thead>
+
+    {% for movie in movie_list %}
+      <tr>
+        <td>{{movie.rdate}}</td>
+        <td>{{movie.moviename}}</td>
+        <td>{{movie.hero}}</td>
+        <td>{{movie.heroine}}</td>
+        <td>{{movie.rating}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  {% else %}
+   <p>No Movies Found</p>
+   {% endif %}
+<br>
+
+<a class = "btn btn-primary" href="/home" role="button">
+Click to go back to Home page</a>
+   <!-- <input type="submit" value="Click to go back to Home page"> -->
+
+</div>
+
+  </body>
+</html>
